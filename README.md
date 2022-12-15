@@ -1,34 +1,13 @@
-## Usage
+## Minimal Working Example of Leaflet in SolidJS
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+Exactly what it says on the tin. This repo contains a simple SolidJS app with two Leaflet maps and basic reactivity.
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+The first map places one regular marker, with a button to toggle the marker on or off.
 
-```bash
-$ npm install # or pnpm install or yarn install
-```
+The second uses MarkerClusters to plot random points near Ottawa, Ontario, and has a drop-down menu that lets you filter the points by property. (Language, here, since that's the use case I'm looking at.)
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+## One Weird Trick
 
-## Available Scripts
+**Leaflet code needs to run inside an `onMount()` call within your component.**
 
-In the project directory, you can run:
-
-### `npm dev` or `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-## Deployment
-
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+I couldn't find this documented anywhere and it was a real pain to figure out. But the two examples here should give you enough to work on (and, doubtless, improve on). 
