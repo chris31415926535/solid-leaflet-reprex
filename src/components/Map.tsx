@@ -1,15 +1,15 @@
 // import a bunch of leaflet stuff!
+
+import 'leaflet/dist/leaflet.css';
+import * as L from 'leaflet';
+import 'leaflet.markercluster';
+
+import { createEffect, onMount } from 'solid-js';
+
 // note the markerIcon lines: to address known issue (with webpack?) where Leaflet won't
 // be able to find the marker icon in production
 // https://stackoverflow.com/questions/60174040/marker-icon-isnt-showing-in-leaflet
-import 'leaflet/dist/leaflet.css';
-//import * as leaflet from 'leaflet';
-
-import * as L from 'leaflet';
-import 'leaflet.markercluster';
 import markerIcon from "../../node_modules/leaflet/dist/images/marker-icon.png";
-import { createEffect, onMount } from 'solid-js';
-
 L.Marker.prototype.setIcon(L.icon({
   iconUrl:markerIcon
 }))
@@ -17,23 +17,6 @@ L.Marker.prototype.setIcon(L.icon({
 
 // leaflet only works if you start doing stuff after the page properly exists (has rendered?)
 // so we render the map and create our effects inside onMount() so they won't exist until the page does
-// NOTE we need to create a placeholder <div> in the App tsx for the map to live in
-// Map() creates the map and, right now, returns the layergroup we're going to add/remove
-// onMount(() => {
-//   let [map, markerLayer]: [leaflet.Map, leaflet.LayerGroup] = Map();
-
-//   createEffect (() => {
-//     console.log("effect fired");
-//     if (getStatus()){
-//       map.addLayer(markerLayer);
-//     }
-//     if (!getStatus()){
-//       map.removeLayer(markerLayer);
-//     }
-//   });
-
-// });
-
 export function MakeAMap(props?: any) {
   
   // Leaflet initialization has to happen inside onMount or it won't work
