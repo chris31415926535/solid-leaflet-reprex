@@ -1,4 +1,3 @@
-
 // import a bunch of leaflet stuff!
 // note the markerIcon lines: to address known issue (with webpack?) where Leaflet won't
 // be able to find the marker icon in production
@@ -8,7 +7,7 @@ import 'leaflet/dist/leaflet.css';
 
 import * as L from 'leaflet';
 import 'leaflet.markercluster';
-import markerIcon from "../node_modules/leaflet/dist/images/marker-icon.png";
+import markerIcon from "../../node_modules/leaflet/dist/images/marker-icon.png";
 import { createEffect, onMount } from 'solid-js';
 
 L.Marker.prototype.setIcon(L.icon({
